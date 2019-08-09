@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="fps"
+                    android:text="250"
                     android:inputType="number"
                     android:minEms="3"
                     android:paddingLeft="@dimen/wh_4dp"
@@ -86,15 +86,15 @@
                     android:paddingTop="@dimen/wh_4dp"
                     android:paddingRight="@dimen/wh_8dp"
                     android:paddingBottom="@dimen/wh_4dp"
-                    android:text="width"
+                    android:text="scale"
                     android:textColor="@color/white" />
 
                 <EditText
-                    android:id="@+id/et_width"
+                    android:id="@+id/et_scale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="1280"
+                    android:text="4"
                     android:inputType="number"
                     android:minEms="4"
                     android:paddingLeft="@dimen/wh_4dp"
@@ -104,32 +104,6 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/radius_right"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/wh_4dp"
-                    android:paddingTop="@dimen/wh_4dp"
-                    android:paddingRight="@dimen/wh_8dp"
-                    android:paddingBottom="@dimen/wh_4dp"
-                    android:text="height"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/et_height"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="720"
-                    android:inputType="number"
-                    android:minEms="4"
-                    android:paddingLeft="@dimen/wh_4dp"
-                    android:paddingTop="@dimen/wh_4dp"
-                    android:paddingRight="@dimen/wh_8dp"
-                    android:paddingBottom="@dimen/wh_4dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
             </LinearLayout>
 
             <TextView

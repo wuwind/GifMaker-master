@@ -19,7 +19,11 @@ import java.util.List;
  */
 public class GifMakeUtil {
 
-    public static String createGif(String filename, List<String> paths, int fps, int width, int height) throws IOException {
+    public static String createGif(String filename, List<String> paths, int fps, int scale) throws IOException {
+        return createGif(filename, paths, fps, 0, 0, scale);
+    }
+
+    public static String createGif(String filename, List<String> paths, int fps, int width, int height, int scale) throws IOException {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         AnimatedGifEncoder localAnimatedGifEncoder = new AnimatedGifEncoder();
@@ -31,6 +35,9 @@ public class GifMakeUtil {
                 Bitmap bitmap = BitmapFactory.decodeFile(paths.get(i));
                 if (width > 0 && height > 0)
                     bitmap = ImageUtil.resizeImage(bitmap, width, height);
+                else if (scale > 0) {
+                    bitmap = ImageUtil.resizeImage(bitmap, bitmap.getWidth()/scale, bitmap.getHeight()/scale);
+                }
                 localAnimatedGifEncoder.addFrame(bitmap);
             }
         }
@@ -47,6 +54,10 @@ public class GifMakeUtil {
         fos.close();
 
         return path;
+    }
+
+    public static String createGif(String filename, List<String> paths, int fps) throws IOException {
+        return createGif(filename, paths, fps, 0, 0, 0);
     }
 
 }

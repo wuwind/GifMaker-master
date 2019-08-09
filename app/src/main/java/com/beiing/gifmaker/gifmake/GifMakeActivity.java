@@ -44,18 +44,15 @@ public class GifMakeActivity extends AppCompatActivity implements IGifMakeView {
     TextView clear;
     @BindView(R.id.et_fps)
     EditText etFps;
-    @BindView(R.id.et_width)
-    EditText etWidth;
-    @BindView(R.id.et_height)
-    EditText etHeight;
+    @BindView(R.id.et_scale)
+    EditText etScale;
     @BindView(R.id.img)
     ImageView img;
 
     private ImageAdapter adapter;
 
     private GifMakePresenter presenter;
-    private int picWidth = 720;
-    private int picHeight = 1280;
+    private int picScale = 4;
     private int picFps = 200;
 
     @Override
@@ -123,10 +120,9 @@ public class GifMakeActivity extends AppCompatActivity implements IGifMakeView {
                 int size = presenter.getGifImages().size();
                 if (size > 1) {
                     picFps = Integer.parseInt(etFps.getText().toString());
-                    picWidth = Integer.parseInt(etWidth.getText().toString());
-                    picHeight = Integer.parseInt(etHeight.getText().toString());
+                    picScale = Integer.parseInt(etScale.getText().toString());
                     Toast.makeText(GifMakeActivity.this, "开始生成Gif图", Toast.LENGTH_SHORT).show();
-                    presenter.createGif(picFps, picWidth, picHeight);
+                    presenter.createGif(picFps, picScale);
                     DialogUtil.showLoading(this);
                 } else {
                     Toast.makeText(GifMakeActivity.this, "请添加图片", Toast.LENGTH_SHORT).show();

@@ -81,7 +81,11 @@ public class GifMakePresenter {
     /**
      * 生成gif图
      */
-    public void createGif(final int fps, final int width, final int height) {
+    public void createGif(final int fps, final int scale) {
+        createGif(fps, 0, 0 , scale);
+    }
+
+    public void createGif(final int fps, final int width, final int height, final int scale) {
         previewFile = "";
         hasPreview = false;
         final String filename = String.valueOf(System.currentTimeMillis());
@@ -89,7 +93,7 @@ public class GifMakePresenter {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 try {
-                    previewFile =  GifMakeUtil.createGif(filename, getPaths(), fps, width, height);
+                    previewFile =  GifMakeUtil.createGif(filename, getPaths(), fps, width, height,scale);
                     subscriber.onCompleted();
                 } catch (IOException e) {
                     subscriber.onError(e.getCause());
